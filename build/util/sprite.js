@@ -1,3 +1,3 @@
-export default function DrawSprite(Ctx, img, SourceX, SourceY, CanvasX, CanvasY) {
-    Ctx.drawImage(img, SourceX * 32, SourceY * 32, 32, 32, CanvasX, CanvasY, 32, 32);
+export default function DrawSprite(Ctx, img, UserSprite) {
+    Ctx.drawImage(img, 0, 0, 10, 10, UserSprite.xpos, UserSprite.ypos, UserSprite.width, UserSprite.height);
 }

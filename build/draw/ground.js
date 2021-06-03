@@ -1,8 +1,12 @@
-import loadImg from "../util/load_img.js";
-let bg;
-export default async function ground(Canvas, Ctx, percent) {
-    if (bg == undefined || bg == null) {
-        bg = await loadImg("static/ground.jpg");
+import load_img from "../util/load_img.js";
+let GroundImg;
+export default async function drawGround(Ctx) {
+    if (GroundImg == null || GroundImg == undefined) {
+        GroundImg = await load_img("static/ground.png");
     }
-    Ctx.drawImage(bg, 0, 40, 281, (281 / Canvas.width * Canvas.height), 0, Canvas.height * (1 - percent), Canvas.width, Canvas.height * (1 - percent));
+    let width = GroundImg.width / GroundImg.height * (Ctx.canvas.height * 0.1);
+    let upTo = Math.ceil(Ctx.canvas.width / width);
+    for (let i = 0; i < upTo; i++) {
+        Ctx.drawImage(GroundImg, i * width, Ctx.canvas.height * 0.9, width, Ctx.canvas.height * 0.1);
+    }
 }

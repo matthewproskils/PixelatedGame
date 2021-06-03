@@ -1,4 +1,4 @@
-export * from "./ground.js";
-export * from "./bg.js";
-export * from "./block.js";
-export * from "./image.js";
+import drawBg from "./bg.js";
+import block from "./block.js";
+import drawImage from "./image.js";
+export { drawBg, block, drawImage };

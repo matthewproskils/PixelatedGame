@@ -1,3 +1,5 @@
-export default function DrawSprite(Ctx: CanvasRenderingContext2D, img: HTMLImageElement, SourceX: number, SourceY: number, CanvasX: number, CanvasY: number){
-    Ctx.drawImage(img, SourceX*32, SourceY*32, 32, 32, CanvasX, CanvasY, 32, 32);
+import Sprite from "../types/sprite.js";
+
+export default function DrawSprite(Ctx: CanvasRenderingContext2D, img: HTMLImageElement, UserSprite: Sprite) {
+    Ctx.drawImage(img, 0, 0, 10, 10, UserSprite.xpos, UserSprite.ypos, UserSprite.width, UserSprite.height);
 }
