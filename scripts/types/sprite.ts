@@ -3,6 +3,6 @@ export default interface Sprite {
   ypos: number,
   height: number,
   width: number,
-  num?: number,
+  num: number,
   flipped?: boolean
 }

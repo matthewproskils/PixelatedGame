@@ -5,9 +5,7 @@ export default class Input{
         })
         window.addEventListener("keyup", (e) => {
           let index = this.Pressed.indexOf(e.key);
-          if (index > -1) {
-            this.Pressed.splice(index, 1);
-          }
+          this.Pressed = this.Pressed.filter(a => a != e.key);
         })
     }
     Pressed: Array<string> = []

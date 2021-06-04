@@ -7,22 +7,24 @@ let InputListener;
 let UserSprite;
 let UserSpriteFlipped;
 let GroundImg;
+let num = 0;
 export async function initObjects(Canvas) {
     Objects = [
         {
             xpos: Canvas.height * 0.9,
             ypos: 0,
             width: Canvas.width,
-            height: Canvas.height * 0.1
+            height: Canvas.height * 0.1,
+            num: 0
         }
     ];
     SpritePos = {
         xpos: 0,
-        ypos: Math.round(Canvas.height * 0.8),
-        height: Math.round(Canvas.height * 0.1),
-        width: Math.round(Canvas.height * 0.1),
-        num: 1,
-        flipped: false
+        ypos: Math.round(Canvas.height * 0.75),
+        height: Math.round(Canvas.height * 0.15),
+        width: Math.round(Canvas.height * 0.15),
+        flipped: false,
+        num: 0
     };
     InputListener = new Input();
     UserSprite = await load_img("static/Sprite Sheet.png");
@@ -40,5 +42,5 @@ export async function one(Canvas, Ctx) {
         DrawSprite(Ctx, UserSpriteFlipped, SpritePos);
     }
     SpritePos = movement(SpritePos, Objects, InputListener);
-    requestAnimationFrame(() => { one(Canvas, Ctx); });
+    requestAnimationFrame(() => { setTimeout(() => { one(Canvas, Ctx); }, 200); });
 }
